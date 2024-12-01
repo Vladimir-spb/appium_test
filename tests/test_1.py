@@ -2,4 +2,4 @@ class TestAppium:
 
     @staticmethod
     def test_start_driver(init_driver):
-        assert True, "Успешный тест"
+        assert True, "Тест не прошел"
