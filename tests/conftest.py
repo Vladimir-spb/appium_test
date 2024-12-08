@@ -1,14 +1,17 @@
+import time
+
 import pytest
-from data.data_capa import CAPABIL
+
+from data.data_capa import NAME_APP
 from driver.browser import Application
-from settings.capabilities import Capabilities
-from settings.settings import Settings
 
 
 @pytest.fixture()
 def init_driver():
-    Application(Settings.URL_APPIUM, Capabilities.get_capabil(CAPABIL))
+    application = Application()
+    application.driver.activate_app(NAME_APP)
 
-    yield
+    yield application
 
-    Application().quit()
+    application.driver.terminate_app(NAME_APP)
+    application.quit()
