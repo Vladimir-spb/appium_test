@@ -8,6 +8,7 @@ from page.meet_page import meet_page
 from page.page_in import page_in
 from page.profile_page import profile_page
 
+
 MOSKOW_CITY = "Москва"
 NEW_CITY = "Казань"
 
