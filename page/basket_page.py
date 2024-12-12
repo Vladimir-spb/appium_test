@@ -2,7 +2,6 @@ from element.button import Button
 from element.text import Text
 from page.base_page import BasePage
 from page.form.apply_form import ApplyForm
-from page.form.location_form import LocationForm
 
 
 class BasketPage(BasePage):

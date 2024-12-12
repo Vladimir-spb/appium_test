@@ -1,5 +1,3 @@
-import time
-
 import pytest
 
 from data.data_capa import NAME_APP

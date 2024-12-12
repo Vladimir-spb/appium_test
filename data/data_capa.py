@@ -4,5 +4,4 @@ CAPABIL = dict(
     deviceName='Android',
 )
 
-
 NAME_APP = "ru.dns.shop.android"

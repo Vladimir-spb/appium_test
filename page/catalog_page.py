@@ -1,5 +1,4 @@
 from element.button import Button
-from element.text import Text
 from page.base_page import BasePage
 from utils.swipe_utils import SwipeUtils, SwipeDirection
 

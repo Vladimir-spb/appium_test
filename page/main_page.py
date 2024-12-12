@@ -13,7 +13,6 @@ class MainPage(BasePage):
     PROFILE_BUTTON = ('//android.widget.FrameLayout[@content-desc="Профиль"]', 'Профиль')
     CATALOG_BUTTON = ('//android.widget.FrameLayout[@content-desc="Каталог"]', 'Каталог')
 
-
     def __init__(self):
         super().__init__(*self.UNIQ_ELEMENT)
         self.__city_name = Text(*self.CITY_NAME)

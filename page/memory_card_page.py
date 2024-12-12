@@ -11,7 +11,6 @@ class MemoryCardPage(BasePage):
 
     FILTER_BUTTON = ('//*[@resource-id="ru.dns.shop.android:id/filter_button"]', 'Фильтры')
     FIRST_ITEM = ('//*[@resource-id="ru.dns.shop.android:id/product_list"]/androidx.cardview.widget.CardView[1]/android.view.ViewGroup', 'Первый элемент')
-
     PRICE_ITEM = ('//*[@resource-id="ru.dns.shop.android:id/current_price_text"]','Цена продукта')
     BUY_ITEM = ('//*[@resource-id="ru.dns.shop.android:id/buy_button"]','Купить')
     NAME_ITEM = ('//*[@resource-id="ru.dns.shop.android:id/product_title_text"]','Цена продукта')

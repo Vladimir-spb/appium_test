@@ -2,18 +2,17 @@ import time
 
 from page.accessories_page import accessories_page
 from page.basket_page import basket_page
+from page.catalog_page import catalog_page
 from page.change_city_page import change_city_page
 from page.favourites_page import favourites_page
 from page.filter_page import filter_page
 from page.for_mobile_page import for_mobile_page
-from page.form.catalog_page import catalog_page
 from page.item_page import item_page
 from page.main_page import main_page
 from page.meet_page import meet_page
 from page.memory_card_page import memory_card_page
 from page.page_in import page_in
 from page.profile_page import profile_page
-
 
 MOSKOW_CITY = "Москва"
 NEW_CITY = "Казань"
@@ -94,7 +93,7 @@ class TestAppium:
         name = memory_card_page.get_name_item()
         price = memory_card_page.get_price()
         memory_card_page.open_page_item()
-        time.sleep(3)  #ждем открытие страницы
+        time.sleep(3)  # ждем открытие страницы
 
         price_item = item_page.get_price()
         assert price_item == price, "Цена не совпадает"

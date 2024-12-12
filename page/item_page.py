@@ -1,7 +1,6 @@
 from element.button import Button
 from element.text import Text
 from page.base_page import BasePage
-from utils.swipe_utils import SwipeUtils, SwipeDirection
 
 
 class ItemPage(BasePage):
@@ -9,7 +8,7 @@ class ItemPage(BasePage):
     UNIQ_ELEMENT = ('//*[@resource-id="ru.dns.shop.android:id/product_title_text"]', PAGE_NAME)
 
     BUY_ITEM = ('//*[@resource-id="ru.dns.shop.android:id/buy_button"]', 'Купить')
-    PRICE_ITEM = ('//*[@resource-id="ru.dns.shop.android:id/current_price_text"]','Цена продукта')
+    PRICE_ITEM = ('//*[@resource-id="ru.dns.shop.android:id/current_price_text"]', 'Цена продукта')
 
     def __init__(self):
         super().__init__(*self.UNIQ_ELEMENT)

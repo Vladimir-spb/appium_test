@@ -1,9 +1,9 @@
 from appium import webdriver
 
+from data.data_capa import CAPABIL
 from driver.singleton import Singleton
 from settings.capabilities import Capabilities
 from settings.settings import Settings
-from data.data_capa import CAPABIL
 
 
 class Application(Singleton):

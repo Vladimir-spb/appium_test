@@ -1,5 +1,6 @@
-from element.base_element import BaseElementClass
 import logging
+
+from element.base_element import BaseElementClass
 
 logger = logging.getLogger("Input Element")
 

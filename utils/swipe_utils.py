@@ -2,7 +2,6 @@ from enum import Enum
 
 from appium.webdriver.common.appiumby import AppiumBy
 from selenium.common import NoSuchElementException
-from selenium.webdriver import ActionChains
 
 from driver.browser import Application
 
@@ -41,16 +40,13 @@ class SwipeUtils:
                 width, height = SwipeUtils.get_dimensions()
 
                 if direction == SwipeDirection.DOWN:
-                    SwipeUtils.swipe_by_coordinates(width / 2, height / 2, width / 2, height - SwipeUtils.EDGE_BORDER,
-                                                    0)
+                    SwipeUtils.swipe_by_coordinates(width / 2, height / 2, width / 2, height - SwipeUtils.EDGE_BORDER, 0)
                 elif direction == SwipeDirection.UP:
                     SwipeUtils.swipe_by_coordinates(width / 2, height / 2, width / 2, SwipeUtils.EDGE_BORDER, 0)
                 elif direction == SwipeDirection.LEFT:
                     SwipeUtils.swipe_by_coordinates(width / 2, height / 2, SwipeUtils.EDGE_BORDER, height / 2, 0)
                 elif direction == SwipeDirection.RIGHT:
-                    SwipeUtils.swipe_by_coordinates(width / 2, height / 2, width - SwipeUtils.EDGE_BORDER, height / 2,
-                                                    0)
+                    SwipeUtils.swipe_by_coordinates(width / 2, height / 2, width - SwipeUtils.EDGE_BORDER, height / 2, 0)
                 return SwipeUtils.swipe_until_element_will_be_found_by_locator(locator, direction, tries - 1)
         else:
             return False
-
