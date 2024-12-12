@@ -1,10 +1,16 @@
+import time
+
 from page.accessories_page import accessories_page
 from page.basket_page import basket_page
 from page.change_city_page import change_city_page
 from page.favourites_page import favourites_page
+from page.filter_page import filter_page
+from page.for_mobile_page import for_mobile_page
 from page.form.catalog_page import catalog_page
+from page.item_page import item_page
 from page.main_page import main_page
 from page.meet_page import meet_page
+from page.memory_card_page import memory_card_page
 from page.page_in import page_in
 from page.profile_page import profile_page
 
@@ -71,3 +77,45 @@ class TestAppium:
 
         assert accessories_page.uniq_element.check_element_on_display(), f"переход на страницу {accessories_page.PAGE_NAME} не состоялся"
         accessories_page.click_for_mobile_button()
+
+        assert for_mobile_page.uniq_element.check_element_on_display(), f"переход на страницу {for_mobile_page.PAGE_NAME} не состоялся"
+        for_mobile_page.click_card_of_memory_button()
+
+        assert memory_card_page.uniq_element.check_element_on_display(), f"переход на страницу {memory_card_page.PAGE_NAME} не состоялся"
+        memory_card_page.click_filter_button()
+
+        assert filter_page.uniq_element.check_element_on_display(), f"переход на страницу {filter_page.PAGE_NAME} не состоялся"
+        filter_page.swipe_from_size_flash_button()
+        filter_page.click_size_flash_button()
+        filter_page.click_size_128_gb_button()
+        filter_page.click_apply_button()
+
+        assert memory_card_page.uniq_element.check_element_on_display(), f"переход на страницу {memory_card_page.PAGE_NAME} не состоялся"
+        name = memory_card_page.get_name_item()
+        price = memory_card_page.get_price()
+        memory_card_page.open_page_item()
+        time.sleep(3)  #ждем открытие страницы
+
+        price_item = item_page.get_price()
+        assert price_item == price, "Цена не совпадает"
+        item_page.click_buy()
+        time.sleep(1)
+        assert item_page.get_text_buy_button() == "В корзине", "Текст на кнопке не изменился"
+        assert "1" in main_page.get_content_from_basket_button(), "Цыфра 1 не отобразилась рядом с иконкой корзины"
+        main_page.click_basket()
+
+        assert basket_page.uniq_element.check_element_on_display(), f"переход на страницу {basket_page.PAGE_NAME} не состоялся"
+        name_basket_item = basket_page.get_name_item()
+        assert name_basket_item in name, "Имя не совпадает"
+        price_item_basket = basket_page.get_price_item()
+        price_total_basket = basket_page.get_price_total()
+        assert price_item_basket == price, "Цена не совпадает"
+        assert price_total_basket == price, "Цена не совпадает"
+
+        basket_page.del_item()
+        assert basket_page.apply_form.uniq_element.check_element_on_display(), f"Форма удаления не открылась"
+        basket_page.apply_form.click_delete()
+
+        assert basket_page.is_basket_empty(), "В корзине есть товар"
+        text = basket_page.get_text_deleted_item()
+        assert text == "Товар удален", "Уведомление не появилось"
