@@ -5,10 +5,10 @@ from page.base_page import BasePage
 
 class MeetPage(BasePage):
     PAGE_NAME = 'Meet Page'
-    UNIQ_ELEMENT = ('//*[contains(@resource-id,"ru.dns.shop.android:id/empty_content_details_text")]', PAGE_NAME)
-    CHANGE_CITY_BUTTON = ('//*[contains(@text,"Сменить город")]', 'Кнопка смены города')
-    OK_BUTTON = ('//*[contains(@text,"Все верно")]', 'Кнопка "Все верно"')
-    CITY_NAME = ('//*[contains(@text,"Ваш город")]/following-sibling::android.widget.TextView', 'Название города')
+    UNIQ_ELEMENT = ('//*[@resource-id="ru.dns.shop.android:id/empty_content_details_text"]', PAGE_NAME)
+    CHANGE_CITY_BUTTON = ('//*[@resource-id="ru.dns.shop.android:id/change_current_settlement_button"]', 'Кнопка смены города')
+    OK_BUTTON = ('//*[@resource-id="ru.dns.shop.android:id/confirm_current_settlement_button"]', 'Кнопка "Все верно"')
+    CITY_NAME = ('//*[@resource-id="ru.dns.shop.android:id/current_settlement_text"]', 'Название города')
 
     def __init__(self):
         super().__init__(*self.UNIQ_ELEMENT)

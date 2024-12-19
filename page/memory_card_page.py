@@ -12,13 +12,11 @@ class MemoryCardPage(BasePage):
     FILTER_BUTTON = ('//*[@resource-id="ru.dns.shop.android:id/filter_button"]', 'Фильтры')
     FIRST_ITEM = ('//*[@resource-id="ru.dns.shop.android:id/product_list"]/androidx.cardview.widget.CardView[1]/android.view.ViewGroup', 'Первый элемент')
     PRICE_ITEM = ('//*[@resource-id="ru.dns.shop.android:id/current_price_text"]','Цена продукта')
-    BUY_ITEM = ('//*[@resource-id="ru.dns.shop.android:id/buy_button"]','Купить')
-    NAME_ITEM = ('//*[@resource-id="ru.dns.shop.android:id/product_title_text"]','Цена продукта')
+    NAME_ITEM = ('//*[@resource-id="ru.dns.shop.android:id/product_title_text"]','Название продукта')
 
     def __init__(self):
         super().__init__(*self.UNIQ_ELEMENT)
         self.__filter_button = Button(*self.FILTER_BUTTON)
-        self.__buy_button = Button(*self.BUY_ITEM)
         self.__first_item = Text(*self.FIRST_ITEM)
         self.__price_item = Text(*self.PRICE_ITEM)
         self.__name_item = Text(*self.NAME_ITEM)
@@ -36,10 +34,6 @@ class MemoryCardPage(BasePage):
     def get_name_item(self):
         elem = self.__get_first_item()
         return elem.find_element(By.XPATH, self.__name_item.get_locator()).text
-
-    def buy_first_item(self):
-        elem = self.__get_first_item()
-        elem.find_element(By.XPATH, self.__buy_button.get_locator()).click()
 
     def open_page_item(self):
         elem = self.__get_first_item()

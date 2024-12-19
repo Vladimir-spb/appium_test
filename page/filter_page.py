@@ -5,7 +5,7 @@ from utils.swipe_utils import SwipeUtils, SwipeDirection
 
 class FilterPage(BasePage):
     PAGE_NAME = 'Filter Page'
-    UNIQ_ELEMENT = ('//*[@resource-id="ru.dns.shop.android:id/toolbar"]/child::*[@text="Фильтры"]', PAGE_NAME)
+    UNIQ_ELEMENT = ('//*[@resource-id="ru.dns.shop.android:id/toolbar"]//*[@text="Фильтры"]', PAGE_NAME)
 
     SIZE_FLASH_BUTTON = ('//*[@resource-id="ru.dns.shop.android:id/title_text" and @text="Объем (ГБ)"]', 'Объем (ГБ)')
     SIZE_128_GB = ('//*[@resource-id="ru.dns.shop.android:id/check" and contains(@text,"128 ГБ")]', 'Объем 128 (ГБ)')

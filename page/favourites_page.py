@@ -5,9 +5,9 @@ from page.base_page import BasePage
 
 class FavouritesPage(BasePage):
     PAGE_NAME = 'Favourites Page'
-    UNIQ_ELEMENT = ('//android.widget.TextView[@text="Избранное"]', PAGE_NAME)
+    UNIQ_ELEMENT = ('//*[@text="Избранное"]', PAGE_NAME)
 
-    LOGIN_BUTTON = ('//android.widget.Button[@resource-id="ru.dns.shop.android:id/login_button"]', 'Войти в профиль')
+    LOGIN_BUTTON = ('//*[@resource-id="ru.dns.shop.android:id/login_button"]', 'Войти в профиль')
     GO_TO_CATALOG_BUTTON = ('//*[@resource-id="ru.dns.shop.android:id/empty_content_action_button"]', 'Переход в каталог')
 
     def __init__(self):

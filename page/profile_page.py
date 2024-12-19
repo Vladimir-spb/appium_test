@@ -5,7 +5,7 @@ from page.base_page import BasePage
 
 class ProfilePage(BasePage):
     PAGE_NAME = 'Profile Page'
-    UNIQ_ELEMENT = ('//android.widget.TextView[@text="Профиль"]', PAGE_NAME)
+    UNIQ_ELEMENT = ('//*[@text="Профиль"]', PAGE_NAME)
 
     LOGIN_BUTTON = ('//*[@resource-id="ru.dns.shop.android:id/login_button"]', 'Кнопка войти')
     CITY_NAME = ('//*[@resource-id="ru.dns.shop.android:id/settlement_text"]', 'Город')
