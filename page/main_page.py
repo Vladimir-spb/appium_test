@@ -12,6 +12,7 @@ class MainPage(BasePage):
     BASKET_BUTTON = ('//*[@resource-id="ru.dns.shop.android:id/nav_cart"]', 'Корзина')
     PROFILE_BUTTON = ('//*[@resource-id="ru.dns.shop.android:id/nav_profile"]', 'Профиль')
     CATALOG_BUTTON = ('//*[@resource-id="ru.dns.shop.android:id/nav_catalog"]', 'Каталог')
+    ERROR_TEXT = ('//*[@resource-id="ru.dns.shop.android:id/error_details_text"]', 'Информация об отсутствии интернета')
 
     def __init__(self):
         super().__init__(*self.UNIQ_ELEMENT)
@@ -21,6 +22,7 @@ class MainPage(BasePage):
         self.__catalog_button = Button(*self.CATALOG_BUTTON)
         self.notification_form = NotificationsForm()
         self.update_form = UpdateForm()
+        self.__error_text = Text(*self.ERROR_TEXT)
 
     def get_city_name_main_page(self):
         return self.__city_name.get_text_from_element()
@@ -36,6 +38,9 @@ class MainPage(BasePage):
 
     def get_content_from_basket_button(self):
         return self.__basket_button.find_element().get_attribute("content-desc")
+
+    def error_text_is_displayed(self):
+        return self.__basket_button.check_element_on_display()
 
 
 main_page = MainPage()

@@ -1,5 +1,4 @@
 import logging
-import time
 
 from page.accessories_page import accessories_page
 from page.basket_page import basket_page
